@@ -209,12 +209,11 @@ nav .nvf{position:absolute;left:9vw;right:9vw;bottom:calc(5vh + env(safe-area-in
 nav.open .nvf{opacity:1;transform:none;transition-delay:1s}
 }
 
-/* MOBILE: abertura estável, sem pin 3D que pode sobrepor conteúdo em celulares */
-@media(max-width:800px){
-  .fx #story{display:none!important}
-  .fx #hero,.fx #tons{display:block!important}
-  .fx #sobre{display:grid!important}
-}
+/* Mantém a experiência de scroll 3D também em celulares.
+   Evita o flash inicial dos textos/cenas antes de o GSAP assumir a timeline. */
+.fx #story .t2,.fx #story .t3,.fx #story .t4,
+.fx #story .card,.fx #story #pr,.fx #story #tn .tb{opacity:0}
+.fx #story #rv{opacity:0}
 /* Evita exibir o ícone/alt de imagem antes da atribuição do src pelo JavaScript */
 img:not([src]),img[src=""]{visibility:hidden}
 
@@ -427,7 +426,7 @@ tl.to("#pg",{scaleX:1,duration:10},0)
 [["#c1",-28],["#c2",0],["#c3",28]].forEach(([c,x],i)=>{const t=1.3+i*.55;
 tl.to(c,{opacity:1,duration:.3},t).to(c,{z:700,x:x+"vw",rotationY:-x*.8,duration:1.8,ease:"power1.in"},t).to(c,{opacity:0,duration:.3},t+1.5)});
 tl.to("#s1",{xPercent:-120,rotationY:35,duration:1.4,ease:"power2.in"},3.3)             // CENA 3: transformação
-.fromTo("#rv",{clipPath:"inset(0% 0% 0% 100%)"},{clipPath:"inset(0% 0% 0% 0%)",duration:1.4,ease:"power2.inOut"},3.3)
+.fromTo("#rv",{opacity:0,clipPath:"inset(0% 0% 0% 100%)"},{opacity:1,clipPath:"inset(0% 0% 0% 0%)",duration:1.4,ease:"power2.inOut"},3.3)
 .fromTo("#rv img",{scale:1.4},{scale:1,duration:1.6},3.3)
 .to(".t3",{opacity:1,duration:.3},3.9).to(".t3",{opacity:0,duration:.3},4.7)
 .to("#rv",{opacity:0,scale:1.15,duration:.9},4.8)                                        // CENA 4: tonalidades
