@@ -22,13 +22,9 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--cu);outline-offset:3px}
 header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:calc(16px + env(safe-area-inset-top,0px)) 5vw 16px;transition:background .4s}
 header.solid{background:rgba(41,34,31,.94)}
-.logo{position:relative;z-index:30;display:flex;align-items:center;gap:10px;text-decoration:none;letter-spacing:0;flex:0 0 auto}
-.brand-mark{display:block;width:58px;height:58px;flex:0 0 58px;overflow:visible}
-.brand-copy{display:flex;flex-direction:column;gap:0;line-height:1.02;white-space:nowrap}
-.brand-name{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.05rem,1.6vw,1.45rem);font-weight:700;letter-spacing:.055em;color:#E7A05F;text-shadow:0 1px 0 #4A1C0C,0 2px 8px rgba(0,0,0,.45)}
-.brand-signature{margin-top:3px;font-family:"Segoe Script","Brush Script MT",cursive;font-size:clamp(.68rem,1vw,.84rem);font-style:italic;color:#F0B477;letter-spacing:.015em}
-.brand-specialty{margin-top:4px;font-family:"Hanken Grotesk",sans-serif;font-size:.48rem;letter-spacing:.22em;color:#DDB58F}
-@media(max-width:800px){.logo{gap:7px}.brand-mark{width:43px;height:43px;flex-basis:43px}.brand-name{font-size:.88rem}.brand-signature{font-size:.63rem}.brand-specialty{font-size:.38rem;letter-spacing:.14em}}
+.logo{position:relative;z-index:30;display:flex;align-items:center;flex:0 0 auto;line-height:0;text-decoration:none}
+.logo img{display:block;width:clamp(150px,17vw,245px);height:auto;max-height:118px;object-fit:contain;object-position:left center}
+@media(max-width:800px){.logo img{width:clamp(112px,29vw,158px);max-height:82px}}
 nav{display:flex;gap:26px;font-size:.92rem}
 nav a{text-decoration:none;opacity:.85}nav a:hover{opacity:1;color:var(--cu)}
 #mb{display:none;background:none;border:1px solid var(--ch);color:var(--ch);padding:8px 14px;border-radius:99px;font:inherit}
@@ -451,23 +447,7 @@ header.solid{background:rgba(33,22,19,.94)}
 <body>
 <header id="hd">
 <a class="logo" href="#hero" aria-label="Mago dos Ruivos — Nilson Gonçalves">
-<svg class="brand-mark" viewBox="0 0 100 100" role="img" aria-label="Monograma MR com coroa e cabelos ruivos" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<linearGradient id="mrCopper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFE0A5"/><stop offset=".28" stop-color="#F28A35"/><stop offset=".58" stop-color="#A94317"/><stop offset=".82" stop-color="#FFD18B"/><stop offset="1" stop-color="#8F3215"/></linearGradient>
-<linearGradient id="mrHair" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFB05B"/><stop offset=".35" stop-color="#D94B18"/><stop offset=".72" stop-color="#6F1C10"/><stop offset="1" stop-color="#F28A35"/></linearGradient>
-</defs>
-<path d="M10 76 C8 46 19 19 47 12 C68 7 87 20 90 42 C94 61 83 79 65 86 C78 73 80 58 71 47 C61 34 47 37 38 48 C28 61 26 76 10 76Z" fill="url(#mrHair)" stroke="#7D2C14" stroke-width="1.8"/>
-<path d="M47 22 C59 13 74 18 79 29 C68 24 59 29 54 39 C48 51 48 63 35 73 C43 57 38 38 47 22Z" fill="none" stroke="#FFC17C" stroke-width="2.2" stroke-linecap="round"/>
-<path d="M53 35 C67 27 82 36 83 50 C84 64 73 75 59 79" fill="none" stroke="#F98A43" stroke-width="3" stroke-linecap="round"/>
-<path d="M26 23 L31 11 L38 21 L46 5 L53 21 L61 11 L65 25" fill="none" stroke="url(#mrCopper)" stroke-width="3.5" stroke-linejoin="round"/>
-<path d="M29 25 Q46 35 64 26 L62 32 Q46 40 31 31Z" fill="url(#mrCopper)" stroke="#6F2A14" stroke-width="1"/>
-<text x="5" y="78" font-family="Georgia,serif" font-size="48" font-weight="700" letter-spacing="-7" fill="url(#mrCopper)" stroke="#54200F" stroke-width=".8" paint-order="stroke">MR</text>
-</svg>
-<span class="brand-copy">
-<span class="brand-name">MAGO DOS RUIVOS</span>
-<span class="brand-signature">Nilson Gonçalves</span>
-<span class="brand-specialty">ESPECIALISTA EM CABELOS RUIVOS</span>
-</span>
+<img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JcFDb0rzyrEcAshZjqTP0n8aXa/a1d6dbe4-72c0-4e20-a98b-0f17d9255922.png" alt="Logomarca original Mago dos Ruivos — Nilson Gonçalves, especialista em cabelos ruivos" width="1536" height="1024" fetchpriority="high" decoding="async">
 </a>
 <button id="mb" aria-expanded="false" aria-controls="nv">Menu</button>
 <nav id="nv" aria-label="Principal">
