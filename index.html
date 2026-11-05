@@ -22,9 +22,7 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--cu);outline-offset:3px}
 header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:calc(16px + env(safe-area-inset-top,0px)) 5vw 16px;transition:background .4s}
 header.solid{background:rgba(41,34,31,.94)}
-.logo{display:block;flex:0 0 auto;line-height:0;text-decoration:none}
-.logo img{display:block;width:clamp(112px,12vw,142px);height:auto;max-height:92px;object-fit:contain}
-@media(max-width:800px){.logo img{width:100px;max-height:68px}}
+.logo{font-family:Fraunces,serif;font-size:1.15rem;text-decoration:none;letter-spacing:.04em}
 nav{display:flex;gap:26px;font-size:.92rem}
 nav a{text-decoration:none;opacity:.85}nav a:hover{opacity:1;color:var(--cu)}
 #mb{display:none;background:none;border:1px solid var(--ch);color:var(--ch);padding:8px 14px;border-radius:99px;font:inherit}
@@ -446,9 +444,7 @@ header.solid{background:rgba(33,22,19,.94)}
 </head>
 <body>
 <header id="hd">
-<a class="logo" href="#hero" aria-label="Mago dos Ruivos — início">
-<img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JcFDb0rzyrEcAshZjqTP0n8aXa/6cfc571a-dda2-4f3a-bfb3-821b36b01d69.png" alt="Logotipo Mago dos Ruivos — Nilson Gonçalves, especialista em cabelos ruivos" width="620" height="461" fetchpriority="high">
-</a>
+<a class="logo" href="#hero">MAGO DOS RUIVOS</a>
 <button id="mb" aria-expanded="false" aria-controls="nv">Menu</button>
 <nav id="nv" aria-label="Principal">
 <a href="#hero">Início</a><a href="#tons">Especialidade</a><a href="#gal">Galeria</a><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#contato">Contato</a>
