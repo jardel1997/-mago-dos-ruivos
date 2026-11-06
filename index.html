@@ -443,12 +443,13 @@ header.solid{background:transparent}
 @media(max-width:700px){#sobre{grid-template-columns:1fr}.hc{padding-left:16px}.hc h1{font-size:clamp(2.8rem,14vw,4.6rem)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 
-/* Mantém a identidade visível e compacta durante a cena cinematográfica,
-   liberando espaço para os títulos sem esconder a logomarca. */
+/* Mantém a identidade visível e dá espaço ao título da cena. */
 #hd.story-active .logo{opacity:1;visibility:visible;pointer-events:auto}
-#hd.story-active .logo img{width:clamp(112px,14vw,165px);max-height:none}
+#hd.story-active .logo img{width:clamp(180px,18vw,220px);max-height:none}
+#hd.story-active + main #story .t4{top:21vh}
 @media(max-width:800px){
-  #hd.story-active .logo img{width:clamp(112px,30vw,132px)}
+  #hd.story-active .logo img{width:clamp(145px,38vw,165px)}
+  #hd.story-active + main #story .t4{top:27vh}
 }
 </style>
 <script>if(!matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("fx")</script>
