@@ -450,6 +450,9 @@ header.solid{background:transparent}
    Só fica visível quando a cena cinematográfica sai da viewport. */
 #hd .logo{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .45s ease,visibility .45s ease}
 #hd.logo-ready .logo{opacity:1;visibility:visible;pointer-events:auto}
+
+/* GARANTIA: não exibir logomarca no rodapé */
+footer .footer-brand, footer > img[alt*="Mago dos Ruivos"] { display:none !important; }
 </style>
 <script>if(!matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("fx")</script>
 </head>
