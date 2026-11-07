@@ -459,6 +459,9 @@ footer .footer-brand, footer > img[alt*="Mago dos Ruivos"] { display:none !impor
 
 /* LOGO NA CAPA DO INÍCIO */
 .cover-logo{display:block;width:clamp(180px,52vw,220px);height:auto;margin:0 0 clamp(14px,2.4vh,26px)}
+/* POSIÇÃO DA MARCA: no alto da capa, alinhada visualmente ao menu */
+#hero .hc .cover-logo{position:absolute;left:0;top:-31vh;margin:0;z-index:3}
+@media(min-width:801px){#hero .hc .cover-logo{top:-25vh}}
 @media(min-width:801px){.cover-logo{width:clamp(280px,25vw,330px)}}
 </style>
 <script>if(!matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("fx")</script>
