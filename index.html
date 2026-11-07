@@ -483,6 +483,23 @@ footer .footer-brand, footer > img[alt*="Mago dos Ruivos"] { display:none !impor
   }
 }
 
+
+/* No tablet horizontal, a marca fica oculta somente na primeira tela.
+   Ao sair da capa, ela volta ao cabeçalho durante a navegação. */
+@media screen and (min-width:801px) and (orientation:landscape) and (max-height:900px){
+  #hd.front-view .logo{
+    visibility:hidden!important;
+    opacity:0!important;
+    pointer-events:none!important;
+  }
+  #hd:not(.front-view) .logo{
+    visibility:visible!important;
+    opacity:1!important;
+    pointer-events:auto!important;
+    transition:opacity .25s ease,visibility .25s ease;
+  }
+}
+
 </style>
 <script>if(!matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("fx")</script>
 </head>
@@ -818,5 +835,22 @@ if("IntersectionObserver" in window)new IntersectionObserver(a=>{const v=a[0].is
   observer.observe(scene);
 })();
 </script>
+
+<script>
+(function(){
+  const header=document.getElementById('hd');
+  if(!header)return;
+  const tabletLandscape=()=>window.matchMedia('(min-width:801px) and (orientation:landscape) and (max-height:900px)').matches;
+  const updateHeader=()=>{
+    if(!tabletLandscape()){header.classList.remove('front-view');return;}
+    header.classList.toggle('front-view',window.scrollY<Math.max(80,window.innerHeight*.65));
+  };
+  updateHeader();
+  window.addEventListener('scroll',updateHeader,{passive:true});
+  window.addEventListener('resize',updateHeader);
+  window.addEventListener('orientationchange',()=>setTimeout(updateHeader,120));
+})();
+</script>
+
 </body>
 </html>
