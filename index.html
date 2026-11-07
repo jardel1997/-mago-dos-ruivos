@@ -453,6 +453,36 @@ header.solid{background:transparent}
 
 /* GARANTIA: não exibir logomarca no rodapé */
 footer .footer-brand, footer > img[alt*="Mago dos Ruivos"] { display:none !important; }
+
+/* TABLET NA HORIZONTAL — mantém a marca visível e dimensionada no cabeçalho */
+@media screen and (min-width:801px) and (orientation:landscape) and (max-height:900px){
+  #hd .logo{
+    opacity:1!important;
+    visibility:visible!important;
+    pointer-events:auto!important;
+    flex:0 1 auto;
+    min-width:0;
+  }
+  #hd .logo img{
+    display:block;
+    width:auto!important;
+    height:clamp(48px,10vh,66px)!important;
+    max-width:min(22vw,190px)!important;
+    max-height:66px!important;
+    object-fit:contain!important;
+    object-position:left center!important;
+  }
+  #hd{
+    padding:8px 4vw!important;
+    min-height:82px;
+    gap:18px;
+  }
+  #hd nav{
+    gap:clamp(10px,1.7vw,20px);
+    font-size:clamp(.72rem,1.2vw,.9rem);
+  }
+}
+
 </style>
 <script>if(!matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("fx")</script>
 </head>
