@@ -656,12 +656,20 @@ const tr=document.getElementById("track"),g=["#B86A42","#713D32","#A95135","#E8D
 const alts={i3:"Cabelo vermelho com mecha loira e franja",i4:"Cabelo ruivo acobreado liso e longo",i5:"Cabelo ruivo intenso longo com corte em camadas",i7:"Nilson Gonçalves e cliente com cabelo ruivo acobreado no salão"};
 const cards=["i7","i4","i3","i5","i7","i3","i4","i5"].map(k=>`<div class="ph"><img src="${IMG[k]}" alt="${alts[k]}" draggable="false" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>`).join("");
 tr.innerHTML=cards+cards;
-let boost=0,x=0,drag=false,sx=0,s0=0;const half=()=>tr.scrollWidth/2+9;
+let boost=0,x=0,drag=false,sx=0,s0=0,raf=0,lastFrame=0,visible=false;
+const half=()=>tr.scrollWidth/2+9;
 const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
-gsap.ticker.add(()=>{boost*=.92;if(!drag&&!reduce)x-=.6+boost;const h=half();x=((x%h)-h)%h;tr.style.transform=`translate3d(${x}px,0,0)`});
+const paint=()=>{const h=half();if(h>0)x=((x%h)-h)%h;tr.style.transform=`translate3d(${x}px,0,0)`};
+const stopGallery=()=>{if(raf){cancelAnimationFrame(raf);raf=0}lastFrame=0};
+const tickGallery=now=>{raf=0;if(!visible||document.hidden||reduce)return;const dt=lastFrame?Math.min(now-lastFrame,50):16.667;lastFrame=now;boost*=Math.pow(.92,dt/16.667);if(!drag)x-=(.6+boost)*dt/16.667;paint();raf=requestAnimationFrame(tickGallery)};
+const startGallery=()=>{if(visible&&!document.hidden&&!reduce&&!raf)raf=requestAnimationFrame(tickGallery)};
+paint();
+if("IntersectionObserver" in window){const galleryObserver=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible)startGallery();else stopGallery()},{rootMargin:"120px 0px"});galleryObserver.observe(tr)}
+else{visible=true;startGallery()}
+document.addEventListener("visibilitychange",()=>{if(document.hidden)stopGallery();else startGallery()});
 tr.addEventListener("pointerdown",e=>{drag=true;sx=e.clientX;s0=x;tr.setPointerCapture(e.pointerId);tr.style.cursor="grabbing"});
-tr.addEventListener("pointermove",e=>{if(drag)x=s0+e.clientX-sx});
-["pointerup","pointercancel"].forEach(n=>tr.addEventListener(n,()=>{drag=false;tr.style.cursor="grab"}));
+tr.addEventListener("pointermove",e=>{if(drag){x=s0+e.clientX-sx;paint()}});
+["pointerup","pointercancel","lostpointercapture"].forEach(n=>tr.addEventListener(n,()=>{drag=false;tr.style.cursor="grab";startGallery()}));
 // menu
 const nv=document.getElementById("nv"),mb=document.getElementById("mb");
 const hd0=document.getElementById("hd");
