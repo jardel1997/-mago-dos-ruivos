@@ -692,7 +692,7 @@ const IMG={"i1": "data:image/webp;base64,UklGRqZuAgBXRUJQVlA4IJpuAgDw/QidASqEA68
 hp.src=IMG.i7;bgp.src=IMG.i6;fim1.src=IMG.i6;pt.src=IMG.i6;fc.src=IMG.i1;document.querySelector(".review-portrait").src=IMG.i6;
 // CONFIGURAÇÃO — preencha com os dados oficiais confirmados
 const CONFIG={whatsapp:"5519982743452",instagram:"https://www.instagram.com/nilsongoncalvezz",tiktok:"https://www.tiktok.com/@nilsongoncalvezz",googleMapsRoute:"https://www.google.com/maps/dir/?api=1&destination=Mago+dos+Ruivos%2C+Rua+Estados+Unidos+273%2C+Jardins%2C+S%C3%A3o+Paulo+SP+01427-000",googleReviews:"https://maps.app.goo.gl/u9P8gbdnPLaYWDs36"};
-const wa=CONFIG.whatsapp?"https://wa.me/"+CONFIG.whatsapp.replace(/\D/g,""):"";
+const message="Olá! Seja bem-vindo ao universo dos ruivos! Tenho interesse em transformar meu visual e gostaria de saber mais sobre os atendimentos e agendar uma avaliação."; const wa=CONFIG.whatsapp?"https://wa.me/"+CONFIG.whatsapp.replace(/\D/g,"")+"?text="+encodeURIComponent(message):"";
 const set=(sel,url)=>document.querySelectorAll(sel).forEach(a=>{if(url){a.href=url;a.target="_blank";a.rel="noopener"}else{a.setAttribute("aria-disabled","true");a.title="Link oficial ainda não configurado";a.addEventListener("click",e=>e.preventDefault())}});
 set("[data-wa]",wa);set("[data-ig]",CONFIG.instagram);set("[data-tt]",CONFIG.tiktok);
 document.querySelectorAll("[data-gmaps]").forEach(a=>{const u=a.textContent.includes("avaliações")?CONFIG.googleReviews:CONFIG.googleMapsRoute;if(u){a.href=u;a.target="_blank";a.rel="noopener"}else{a.setAttribute("aria-disabled","true");a.title="Link oficial ainda não configurado";a.addEventListener("click",e=>e.preventDefault())}});
