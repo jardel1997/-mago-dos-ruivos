@@ -23,9 +23,9 @@ a{color:inherit}
 header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:calc(16px + env(safe-area-inset-top,0px)) 5vw 16px;transition:background .4s}
 header.solid{background:transparent}
 .logo{position:relative;z-index:30;display:flex;align-items:center;flex:0 0 auto;line-height:0;text-decoration:none}
-.logo img{display:block;width:clamp(220px,20vw,300px);height:auto;max-height:none;object-fit:contain;object-position:left center}
-@media(max-width:800px){.logo img{width:clamp(180px,52vw,220px);max-height:none}}
-@media(min-width:801px){.logo img{width:clamp(280px,25vw,330px);max-height:none}}
+.logo img{display:block;width:clamp(230px,22vw,300px);height:clamp(118px,10vw,142px);max-height:none;object-fit:cover;object-position:center top}
+@media(max-width:800px){.logo img{width:clamp(205px,58vw,245px);height:clamp(112px,30vw,132px);max-height:none;object-position:center top}}
+@media(min-width:801px){.logo img{width:clamp(270px,25vw,330px);height:clamp(130px,11vw,150px);max-height:none;object-position:center top}}
 nav{display:flex;gap:26px;font-size:.92rem}
 nav a{text-decoration:none;opacity:.85}nav a:hover{opacity:1;color:var(--cu)}
 #mb{display:none;background:none;border:1px solid var(--ch);color:var(--ch);padding:8px 14px;border-radius:99px;font:inherit}
