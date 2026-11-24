@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<meta name="theme-color" content="#211613">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mago dos Ruivos — Nilson Gonçalves | Especialista em cabelos ruivos nos Jardins, São Paulo</title>
 <meta name="description" content="Especialista em cabelos ruivos no Jardins, São Paulo. Ruivos sem descoloração, coloração ruiva profissional e cabelo acobreado com Nilson Gonçalves.">
@@ -566,8 +567,8 @@ nav .nvf{position:relative!important;left:auto!important;right:auto!important;bo
 .kc .btn{padding:11px 18px;font-size:.82rem;white-space:nowrap}
 #kit:not(.in) .kc{opacity:0;transform:translateY(30px)}
 #kit.in .kc{transition:flex .6s cubic-bezier(.2,.8,.2,1),opacity 1s calc(var(--i)*.1s),transform 1.1s calc(var(--i)*.1s) cubic-bezier(.2,.8,.2,1)}
-@media(max-width:599px){.kit-row{height:53vw;gap:6px}.kc.on{flex:3}.kc .kx{width:100%;padding:0 8px 14px}.kc h3{font-size:1.05rem;margin-bottom:8px}.kc p{display:none}.kc .btn{padding:9px 10px;font-size:.7rem}.kc .kv{font-size:.9rem;padding:14px 0}}
-@media(min-width:600px) and (max-width:899px){.kit-row{height:53vw}.kc.on{flex:3}.kc .kx{width:min(230px,92%)}.kc h3{font-size:1.35rem}.kc p{font-size:.8rem}.kc .btn{padding:10px 16px;font-size:.8rem}}
+@media(max-width:599px){.kit-row{height:56.5vw;gap:6px;margin-left:-5vw;margin-right:-5vw}.kc.on{flex:3}.kc .kx{width:100%;padding:0 8px 14px}.kc h3{font-size:1.05rem;margin-bottom:8px}.kc p{display:none}.kc .btn{padding:9px 10px;font-size:.7rem}.kc .kv{font-size:.9rem;padding:14px 0}}
+@media(min-width:600px) and (max-width:899px){.kit-row{height:56.5vw;margin-left:-5vw;margin-right:-5vw}.kc.on{flex:3}.kc .kx{width:min(230px,92%)}.kc h3{font-size:1.35rem}.kc p{font-size:.8rem}.kc .btn{padding:10px 16px;font-size:.8rem}}
 @media(min-width:900px){.kit-row{height:min(62vh,520px)}.kc.on{flex:3}}
 /* Botão flutuante do WhatsApp: aparece junto com o logotipo, pulsa de leve e devagar */
 .wa-float{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:40;width:62px;height:62px;border-radius:50%;background:#25D366;display:grid;place-items:center;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(14px) scale(.9);transition:opacity .7s ease,transform .7s ease,visibility .7s;box-shadow:0 8px 22px rgba(0,0,0,.35);-webkit-tap-highlight-color:transparent}
@@ -580,6 +581,28 @@ nav .nvf{position:relative!important;left:auto!important;right:auto!important;bo
 @media(prefers-reduced-motion:reduce){#hd.logo-ready ~ .wa-float,#hd.logo-ready ~ .wa-float::before{animation:none}}
 
 @media(prefers-reduced-motion:reduce){#kit:not(.in) .kc{opacity:1;transform:none}#kit::before{transition:none}}
+/* BLINDAGEM DO SCROLL: sem rolagem suave nativa (conflita com o pin), sem bounce, e o site so abre depois da animacao */
+html{scroll-behavior:auto!important;overscroll-behavior-y:none}
+body{overscroll-behavior-y:none}
+.gate main>:not(#story):not(.pin-spacer),.gate footer{visibility:hidden}
+/* DESIGN: menos cara de template. Sem numeracao no menu (nao e sequencia) e rotulos em frase, nao em caixa alta espacada */
+nav a em{display:none!important}
+#historia .eyebrow,#dif .dif-eyebrow{text-transform:none;letter-spacing:.01em;font:italic 500 1.2rem/1.2 "Cormorant Garamond",Georgia,serif;opacity:1}
+#historia .eyebrow{color:#7A3524}
+.gbadge{text-transform:none;letter-spacing:.02em}
+/* SENSACAO: toque que responde, abrir/fechar suave, convite para rolar */
+::selection{background:var(--cu);color:var(--es)}
+a,button,summary,.kc,.ph{-webkit-tap-highlight-color:transparent}
+.btn,.wa-float,summary{transition-property:transform,background,color,border-color,box-shadow,opacity;transition-duration:.25s}
+.btn:active,.wa-float:active{transform:scale(.96)}
+summary:active{opacity:.7}
+.kc:active{filter:brightness(1.08)}
+@supports(interpolate-size:allow-keywords){html{interpolate-size:allow-keywords}details::details-content{block-size:0;overflow:clip;transition:block-size .45s cubic-bezier(.2,.8,.2,1),content-visibility .45s allow-discrete}details[open]::details-content{block-size:auto}}
+.cue{position:absolute;left:50%;bottom:calc(6px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:8;display:flex;flex-direction:column;align-items:center;gap:5px;font:italic 500 1.05rem/1 "Cormorant Garamond",Georgia,serif;color:var(--ch);pointer-events:none;transition:opacity .5s}
+.cue.gone{opacity:0}
+.cue i{display:block;width:1px;height:20px;background:linear-gradient(var(--cu),transparent);transform-origin:top;animation:cue 2.2s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);opacity:1}55%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+@media(prefers-reduced-motion:reduce){.cue i{animation:none}}
 </style>
 <script>if(!false)document.documentElement.classList.add("fx")</script>
 </head>
@@ -608,7 +631,7 @@ nav .nvf{position:relative!important;left:auto!important;right:auto!important;bo
 <div id="tn"></div>
 <div id="pr"><img id="pr1" alt="Nilson Gonçalves, o Mago dos Ruivos"><div><div class="h" style="font-size:clamp(1.6rem,3.6vw,3rem)">Por trás de cada transformação, existe um olhar especializado.</div><p style="margin-top:14px">Nilson Gonçalves é o Mago dos Ruivos: um profissional dedicado a cabelos ruivos, do acobreado ao auburn.</p></div></div>
 </div>
-<div class="tx t1"><div class="h">Existe uma arte <i>em ser ruiva.</i></div><p>Especialista em cabelos ruivos. Cor, personalidade e autenticidade em cada transformação.</p><div class="row"><a class="btn fill" href="#tons">Descubra nosso universo</a></div></div>
+<div class="tx t1"><div class="h">Existe uma arte <i>em ser ruiva.</i></div><p>Especialista em cabelos ruivos. Cor, personalidade e autenticidade em cada transformação.</p></div>
 <div class="tx t2"><div class="h">Fios, escala e profundidade.</div></div>
 <div class="tx t3"><div class="h">A transformação.</div></div>
 <div class="tx t4"><div class="h">Mais do que uma cor. Uma identidade.</div></div>
@@ -620,7 +643,6 @@ nav .nvf{position:relative!important;left:auto!important;right:auto!important;bo
 <img class="cover-logo" alt="Mago dos Ruivos" width="834" height="442" decoding="async">
 <h1><span>Existe uma arte</span><span><i>em ser ruiva.</i></span></h1>
 <p>Especialista em cabelos ruivos. Cor, personalidade e autenticidade em cada transformação.</p>
-<div class="row"><a class="btn fill" href="#tons">Descubra nosso universo</a></div>
 <ul class="proof"><li><b>5,0</b> no Google</li><li>26 avaliações</li><li>Ruivos sem descoloração</li></ul>
 </div>
 <div class="sig">Mago dos Ruivos<br>Nilson Gonçalves</div>
@@ -805,6 +827,9 @@ nv.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setMenu(false
 addEventListener("keydown",e=>{if(e.key==="Escape")setMenu(false)});
 // GSAP
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ignoreMobileResize:true});
+try{history.scrollRestoration="manual";if(location.hash)history.replaceState(null,"",location.pathname+location.search)}catch(e){}
+scrollTo(0,0);
 ScrollTrigger.create({onUpdate:s=>boost=Math.min(Math.abs(s.getVelocity())/90,18)});
 ScrollTrigger.create({start:60,onUpdate:s=>document.getElementById("hd").classList.toggle("solid",s.scroll()>60)});
 if(!reduce){
@@ -832,9 +857,9 @@ for(let i=0;i<N;i++){const pts=[],ph=Math.random()*6,ax=(Math.random()-.5)*34,ay
 for(let k=0;k<=24;k++)pts.push(new THREE.Vector3(ax+Math.sin(k*.35+ph)*4,ay+Math.cos(k*.28+ph)*3,10-k*4));
 const g=new THREE.BufferGeometry().setFromPoints(new THREE.CatmullRomCurve3(pts).getPoints(120));
 scn.add(new THREE.Line(g,new THREE.LineBasicMaterial({color:cols[i%5],transparent:true,opacity:.35+Math.random()*.5})))}
-const rs=()=>{ren.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()};rs();addEventListener("resize",rs);glOk=true;
+let lw=0,lh=0;const rs=()=>{if(lw&&innerWidth===lw&&Math.abs(innerHeight-lh)<150)return;lw=innerWidth;lh=innerHeight;ren.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()};rs();addEventListener("resize",rs);glOk=true;
 }catch(e){document.getElementById("gl").style.display="none"}
-const tl=gsap.timeline({defaults:{ease:"none"},scrollTrigger:{trigger:"#story",start:"top top",end:"+=520%",pin:true,scrub:1,anticipatePin:1,invalidateOnRefresh:true,onLeave:()=>on=false,onEnterBack:()=>on=true}});
+const tl=gsap.timeline({defaults:{ease:"none"},scrollTrigger:{trigger:"#story",start:"top top",end:"+=520%",pin:true,scrub:.6,anticipatePin:1,invalidateOnRefresh:true,onLeave:()=>on=false,onEnterBack:()=>on=true}});
 const idleOff=false;
 gsap.ticker.add(()=>{if(glOk&&on){prog=tl.progress();const t=idleOff?0:performance.now()/1000;
 // movimento contínuo: os fios ondulam sozinhos, mesmo sem rolagem ou toque
@@ -869,6 +894,17 @@ const P={"#hero":0,"#tons":.55,"#sobre":.85}[a.getAttribute("href")],st=tl.scrol
 gsap.fromTo(".ph",{scale:.8},{scale:1,ease:"none",scrollTrigger:{trigger:"#gal",start:"top 90%",end:"top 30%",scrub:true}});
 gsap.from("#gal h2",{xPercent:-25,ease:"none",scrollTrigger:{trigger:"#gal",start:"top 95%",end:"top 40%",scrub:true}});
 addEventListener("load",()=>ScrollTrigger.refresh());
+// PORTAO: o site so abre depois que a animacao de rolagem termina por completo
+{const de=document.documentElement,st=tl.scrollTrigger;let entered=false,timer=null;
+const unlock=()=>{if(entered)return;entered=true;clearTimeout(timer);de.classList.remove("gate");gsap.ticker.remove(watch)};
+const watch=()=>{if(entered)return;const maxY=st.end-2;if(scrollY>maxY)scrollTo(0,maxY);
+if(tl.progress()>=.93)unlock();
+else if(st.progress>=.995){if(!timer)timer=setTimeout(unlock,1500)}else if(timer){clearTimeout(timer);timer=null}};
+de.classList.add("gate");gsap.ticker.add(watch);
+const cue=document.createElement("div");cue.className="cue";cue.setAttribute("aria-hidden","true");cue.innerHTML="<span>Role para entrar</span><i></i>";document.getElementById("story").appendChild(cue);
+addEventListener("scroll",()=>cue.classList.toggle("gone",scrollY>30),{passive:true});
+// links do menu: descem suave ate a secao (so depois que o site abre)
+document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const h=a.getAttribute("href");if(h.length<2||/^#(hero|tons|sobre)$/.test(h))return;const t=document.querySelector(h);if(!t)return;e.preventDefault();if(de.classList.contains("gate"))return;scrollTo({top:Math.max(0,t.getBoundingClientRect().top+scrollY-70),behavior:"smooth"})})}
 }
 // FIO DE COBRE: um único fio que se desenha ao longo da página
 (()=>{
