@@ -1,30 +1,10 @@
-# Maggo dos Ruivos
+# Mago dos Ruivos — Nilson Gonçalves
 
-Site do **Mago dos Ruivos — Nilson Gonçalves**, especialista em cabelos ruivos nos Jardins, São Paulo.
+Projeto estático preparado para publicar no GitHub Pages / hospedagem estática.
 
-- Rua Estados Unidos, 273 — Jardins, São Paulo/SP
-- Instagram: [@nilsongoncalvezz](https://www.instagram.com/nilsongoncalvezz)
-- TikTok: [@nilsongoncalvezz](https://www.tiktok.com/@nilsongoncalvezz)
+## Publicação
+1. Extraia o ZIP.
+2. No repositório GitHub, envie `index.html` para a raiz do repositório (não dentro de outra pasta).
+3. O `index.html` é o arquivo inicial do site.
 
-## Estrutura
-
-```
-index.html   → o site inteiro (HTML, CSS, JS e imagens em um único arquivo)
-.nojekyll    → faz o GitHub Pages servir o arquivo como está
-.gitignore   → arquivos ignorados pelo Git
-```
-
-## Como publicar
-
-**Cloudflare Pages:** Workers & Pages → Create → Pages → Connect to Git → escolha este repositório.
-Deixe o comando de build vazio e o diretório de saída como `/` (raiz).
-
-**GitHub Pages:** Settings → Pages → Branch `main` → pasta `/ (root)` → Save.
-
-## Como atualizar
-
-Troque o `index.html` por um novo e faça o commit. A publicação é automática.
-
-## Configurações
-
-No fim do `index.html`, procure por `CONFIG` para alterar WhatsApp, Instagram, TikTok e Facebook.
+O HTML mantém imagens incorporadas e usa bibliotecas/fontes externas (GSAP, Three.js e Google Fonts), portanto a experiência completa requer conexão à internet.
