@@ -582,8 +582,7 @@ nav .nvf{position:relative!important;left:auto!important;right:auto!important;bo
 
 @media(prefers-reduced-motion:reduce){#kit:not(.in) .kc{opacity:1;transform:none}#kit::before{transition:none}}
 /* BLINDAGEM DO SCROLL: sem rolagem suave nativa (conflita com o pin), sem bounce, e o site so abre depois da animacao */
-html{scroll-behavior:auto!important;overscroll-behavior-y:none}
-body{overscroll-behavior-y:none}
+html{scroll-behavior:auto!important}
 .gate main>:not(#story):not(.pin-spacer),.gate footer{visibility:hidden}
 /* DESIGN: menos cara de template. Sem numeracao no menu (nao e sequencia) e rotulos em frase, nao em caixa alta espacada */
 nav a em{display:none!important}
@@ -597,6 +596,9 @@ a,button,summary,.kc,.ph{-webkit-tap-highlight-color:transparent}
 .btn:active,.wa-float:active{transform:scale(.96)}
 summary:active{opacity:.7}
 .kc:active{filter:brightness(1.08)}
+/* foto com largura fixa (a do cartao aberto): o cartao so revela/recorta, sem reescalar a foto durante a animacao */
+#kit{--aw:min(46vw,480px)}
+.kc[data-k] img{inset:auto;top:0;bottom:0;right:auto;left:50%;height:100%;width:var(--aw);margin-left:calc(var(--aw)/-2);transition:none}
 @supports(interpolate-size:allow-keywords){html{interpolate-size:allow-keywords}details::details-content{block-size:0;overflow:clip;transition:block-size .45s cubic-bezier(.2,.8,.2,1),content-visibility .45s allow-discrete}details[open]::details-content{block-size:auto}}
 .cue{position:absolute;left:50%;bottom:calc(6px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:8;display:flex;flex-direction:column;align-items:center;gap:5px;font:italic 500 1.05rem/1 "Cormorant Garamond",Georgia,serif;color:var(--ch);pointer-events:none;transition:opacity .5s}
 .cue.gone{opacity:0}
@@ -964,6 +966,7 @@ const K=[["Acobreado","#B86A42","n2","Fundo quente e metálico, com brilho de co
 const wl=n=>CONFIG.whatsapp?"https://wa.me/"+CONFIG.whatsapp.replace(/\D/g,"")+"?text="+encodeURIComponent("Olá, Nilson! Vi o tom "+n+" no site e gostaria de agendar uma avaliação para o meu cabelo."):"";
 row.innerHTML=K.map((k,i)=>`<article class="kc" data-k="${k[2]}" tabindex="0" style="--c:${k[1]};--i:${i}"><img src="${IMG[k[2]]}" alt="Cabelo ruivo no tom ${k[0]}" loading="lazy" draggable="false"><b class="kv">${k[0]}</b><div class="kx"><h3>${k[0]}</h3><p>${k[3]}</p><a class="btn fill" ${wl(k[0])?`href="${wl(k[0])}" target="_blank" rel="noopener"`:`aria-disabled="true" href="#kit"`}>Quero este tom</a></div></article>`).join("");
 const cs=[...row.children],act=i=>{cs.forEach((c,j)=>c.classList.toggle("on",j===i));sec.style.setProperty("--kc",K[i][1])};act(0);
+const setAw=()=>{const g=parseFloat(getComputedStyle(row).columnGap)||0,w=row.clientWidth-g*(cs.length-1);if(w>0)row.style.setProperty("--aw",(w*3/(3+cs.length-1)).toFixed(1)+"px")};setAw();addEventListener("resize",setAw);addEventListener("load",setAw);
 cs.forEach((c,i)=>{c.addEventListener("focusin",()=>act(i));c.addEventListener("click",()=>act(i));if(matchMedia("(hover:hover)").matches)c.addEventListener("pointerenter",()=>act(i))});
 if("IntersectionObserver" in window){
 new IntersectionObserver((a,o)=>{if(a[0].isIntersecting){sec.classList.add("in");o.disconnect()}},{threshold:.25}).observe(sec);
